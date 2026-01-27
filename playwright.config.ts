@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const baseURL = process.env.BASE_URL || "https://example.com";
-const apiBaseURL = process.env.API_BASE_URL || "https://jsonplaceholder.typicode.com";
+const baseURL = process.env.BASE_URL || "https://app-dev.sent.dm";
+const apiBaseURL = process.env.API_BASE_URL || "https://api-dev.sent.dm";
 
 export default defineConfig({
   testDir: "./tests",

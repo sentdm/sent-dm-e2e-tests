@@ -1,7 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const baseURL = process.env.BASE_URL || "https://app-dev.sent.dm";
-const apiBaseURL = process.env.API_BASE_URL || "https://api-dev.sent.dm";
+const apiBaseURL =
+  process.env.PUBLIC_API_BASE_URL ||
+  process.env.API_BASE_URL ||
+  "https://api-dev.sent.dm";
 
 export default defineConfig({
   testDir: "./tests",

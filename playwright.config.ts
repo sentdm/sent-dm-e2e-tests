@@ -1,3 +1,4 @@
+import "./tests/helpers/loadEnv"; // load .env files into process.env before config uses them
 import { defineConfig, devices } from "@playwright/test";
 
 const baseURL = process.env.BASE_URL || "https://app-dev.sent.dm";

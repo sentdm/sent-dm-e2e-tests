@@ -1,15 +1,11 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures/apiFixtures";
 
-test("GET /todos/1 returns expected shape", async ({ request, baseURL }) => {
-  const response = await request.get(`${baseURL}/todos/1`);
-  expect(response.ok()).toBeTruthy();
+test("healthcheck responds with 200", async ({ publicApi }) => {
+  const response = await publicApi.healthcheck();
+  expect(response.status()).toBe(200);
+});
 
-  const body = await response.json();
-  expect(body).toEqual(
-    expect.objectContaining({
-      id: 1,
-      title: expect.any(String),
-      completed: expect.any(Boolean)
-    })
-  );
+test("healthcheck responds with", async ({ privateApi }) => {
+  const response = await privateApi.listWhatsappPricing();
+  expect(response.status()).toBe(200);
 });

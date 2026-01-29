@@ -12,19 +12,11 @@ export type UpdateUserRoleRequest = {
   role: string;
 };
 
-export class SentApi {
+export class PublicApi {
   constructor(private readonly http: HttpClient) {}
 
   healthcheck(): Promise<APIResponse> {
     return this.http.get("/healthcheck");
-  }
-
-  readiness(): Promise<APIResponse> {
-    return this.http.get("/health/ready");
-  }
-
-  liveness(): Promise<APIResponse> {
-    return this.http.get("/health/live");
   }
 
   getProfileUsers(profileId: string, page = 1, pageSize = 50): Promise<APIResponse> {

@@ -29,7 +29,7 @@ export type UpdateWebhookRequest = {
   timeoutSeconds?: number;
 };
 
-export class PrivateApi {
+export class InternalApi {
   constructor(private readonly http: HttpClient) {}
 
   listWhatsappPricing(

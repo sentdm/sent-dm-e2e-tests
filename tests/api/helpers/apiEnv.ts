@@ -22,7 +22,7 @@ export function getPublicApiEnv(fallbackBaseURL?: string): ApiEnv {
   return { baseURL, headers };
 }
 
-export function getPrivateApiEnv(fallbackBaseURL?: string): ApiEnv {
+export function getInternalApiEnv(fallbackBaseURL?: string): ApiEnv {
   const baseURL =
     process.env.INTERNAL_API_BASE_URL ||
     fallbackBaseURL ||
@@ -30,7 +30,7 @@ export function getPrivateApiEnv(fallbackBaseURL?: string): ApiEnv {
 
   const headers: Record<string, string> = {};
   const apiKey =
-    process.env.INTERNAL_API_KEY || process.env.ADMIN_API_KEY || process.env.API_KEY;
+    process.env.INTERNAL_API_KEY || process.env.API_KEY;
   if (apiKey) {
     headers["x-api-key"] = apiKey;
   }

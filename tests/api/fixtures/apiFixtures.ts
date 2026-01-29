@@ -2,11 +2,11 @@ import { test as base } from "@playwright/test";
 import { HttpClient } from "../client/httpClient";
 import { InternalApi } from "../client/internalApi";
 import { PublicApi } from "../client/publicApi";
-import { getPrivateApiEnv, getPublicApiEnv } from "../helpers/apiEnv";
+import { getInternalApiEnv, getPublicApiEnv } from "../helpers/apiEnv";
 
 type Fixtures = {
   publicApi: PublicApi;
-  privateApi: InternalApi;
+  internalApi: InternalApi;
 };
 
 export const test = base.extend<Fixtures>({
@@ -18,8 +18,8 @@ export const test = base.extend<Fixtures>({
     });
     await use(new PublicApi(client));
   },
-  privateApi: async ({ request }, use) => {
-    const env = getPrivateApiEnv();
+  internalApi: async ({ request }, use) => {
+    const env = getInternalApiEnv();
     const client = new HttpClient(request, {
       baseURL: env.baseURL,
       defaultHeaders: env.headers

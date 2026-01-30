@@ -382,7 +382,6 @@ export type WhatsAppSubscribeAppsRequest = {
   wabaId?: string;
 };
 
-export type BulkProvisionRequirementsRequest = AnyObject;
 export type UploadCampaignSupportingDocumentRequest = AnyObject;
 
 export class InternalApi {

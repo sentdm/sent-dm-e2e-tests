@@ -57,6 +57,18 @@ export class HttpClient {
     });
   }
 
+  async patch<TBody = unknown>(
+    path: string,
+    body: TBody,
+    options: RequestOptions = {}
+  ): Promise<APIResponse> {
+    return this.request.patch(this.toUrl(path), {
+      headers: this.mergeHeaders(options.headers),
+      params: options.params,
+      data: body
+    });
+  }
+
   private toUrl(path: string): string {
     if (path.startsWith("http://") || path.startsWith("https://")) {
       return path;
